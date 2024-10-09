@@ -30,7 +30,7 @@ class AuthController extends Controller
             if (Auth::user()->status != 'active') {
                 Session::flash('status', 'valid');
                 Session::flash('message', 'Your account not active');
-                return redirect('login');
+                return redirect('/login');
             } 
             $request->session()->regenerate();
             if (Auth::user()->role_id == 1) {
