@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-
-class OnlyAdmin
+class OnlyGuest
 {
     /**
      * Handle an incoming request.
@@ -17,11 +16,9 @@ class OnlyAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->role_id != 1) {
-            return redirect('/login');
+        if (Auth::check() && Auth::user()) {
+            return redirect('/costums');
         }
         return $next($request);
     }
-    
-
 }
