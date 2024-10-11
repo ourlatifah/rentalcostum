@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\OnlyAdmin;
 use App\Http\Middleware\OnlyClient;
 use App\Http\Middleware\OnlyGuest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel

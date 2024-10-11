@@ -11,11 +11,12 @@ use App\Http\Middleware\OnlyGuest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth')->group (function () {
-    Route::get('/', function () {
-        return view('welcome');
-    })->middleware('App\Http\Middleware\OnlyClient');
+Route::get('/', function () {
+    return view('login');
+});
 
+Route::middleware('auth')->group (function () {
+    
     Route::get('/logout', [App\Http\Controllers\AuthController::class,'logout'])->name('logout');
     Route::get('/profile', [App\Http\Controllers\UserController::class,'profile'])->middleware( 'App\Http\Middleware\OnlyClient');
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class,'dashboard'])->middleware('App\Http\Middleware\OnlyAdmin');
@@ -23,9 +24,11 @@ Route::middleware('auth')->group (function () {
 });
 
 Route::middleware('App\Http\Middleware\OnlyGuest')->group (function () {
+    
     Route::get('/login', [App\Http\Controllers\AuthController::class,'login'])->name('login');
     Route::post('/login', [App\Http\Controllers\AuthController::class,'authenticating']);
     Route::get('/register', [App\Http\Controllers\AuthController::class,'register'])->name('register');
+    Route::post('/register', [App\Http\Controllers\AuthController::class,'registerProcess']);
 });
 
     

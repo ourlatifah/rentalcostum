@@ -59,8 +59,9 @@
                 </div> --}}
                 <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-1">Log in</button>
             </form>
-            <div class="text-center mt-2 text-lg fs-4">
-                <a href="register" class="font-bold">Sign up</a>
+            <div class="text-center mt-2 text-lg fs-5">
+            Don't have an account?
+                <a href="register" class="btn btn-outline-primary font-bold">Sign up</a>
             </div>
         </div>
     </div>
