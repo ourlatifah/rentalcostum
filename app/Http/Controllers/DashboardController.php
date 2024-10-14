@@ -12,6 +12,6 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        dd('ini halaman dashboard');
+        return view('dashboard');
     }
 }

@@ -4,7 +4,7 @@
                 <div class="sidebar-header">
                     <div class="d-flex justify-content-between">
                         <div class="logo">
-                            <a href="index.html"><img src="{{asset('/images/logo/logo.png')}}" alt="Logo" srcset=""></a>
+                            <a class="auth-title">Rental Costum</a>
                         </div>
                         <div class="toggler">
                             <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -16,28 +16,35 @@
                 <li class="sidebar-title">Menu</li> 
 
                         <li class="sidebar-item  ">
-                            <a href="{{route('dashboard')}}" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                            <a href="" class='sidebar-link'>
+                                <i class="bi bi-house-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
                          <li
                             class="sidebar-item  ">
-                            <a href="{{route('dashboard')}}" class='sidebar-link'>
-                                <i class="bi bi-building"></i>
-                                <span>Institution</span>
+                            <a href="" class='sidebar-link'>
+                                <i class="bi bi-grid"></i>
+                                <span>Costum</span>
+                            </a>
+                        </li>
+                        <li
+                            class="sidebar-item  ">
+                            <a href="" class='sidebar-link'>
+                                <i class="bi bi-hdd-stack"></i>
+                                <span>Category</span>
                             </a>
                         </li>
                         <li class="sidebar-item  ">
-                            <a href="{{route('dashboard')}}" class='sidebar-link'>
+                            <a href="" class='sidebar-link'>
                                 <i class="bi bi-people"></i>
-                                <span>Guest List</span>
+                                <span>Client List</span>
                             </a>
                         </li>
                          <li class="sidebar-item  ">
-                            <a href="{{route('dashboard')}}" class='sidebar-link'>
+                            <a href="" class='sidebar-link'>
                                 <i class="bi bi-bar-chart"></i>
-                                <span>Report</span>
+                                <span>Rent Log</span>
                             </a>
                         </li>
                     </ul>
