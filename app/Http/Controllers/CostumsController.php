@@ -11,6 +11,6 @@ class CostumsController extends Controller
 {
     public function costums()
     {
-        dd('ini halaman costums');
+        return view('costums');
     }
 }

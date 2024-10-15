@@ -23,6 +23,8 @@ Route::middleware('auth')->group (function () {
     Route::get('/costums', [App\Http\Controllers\CostumsController::class,'costums']);
 });
 
+Route::get('/costums', [App\Http\Controllers\CostumsController::class,'costums'])->middleware('auth');
+
 Route::middleware('App\Http\Middleware\OnlyGuest')->group (function () {
     
     Route::get('/login', [App\Http\Controllers\AuthController::class,'login'])->name('login');

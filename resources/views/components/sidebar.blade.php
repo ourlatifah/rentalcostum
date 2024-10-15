@@ -1,3 +1,4 @@
+
 <div id="app">
             <div id="sidebar" class="active">
                 <div class="sidebar-wrapper active">
@@ -14,18 +15,18 @@
                 <div class="sidebar-menu">
                 <ul class="menu">
                 <li class="sidebar-title">Menu</li> 
-
+                        @if (Auth::user()->role_id == 1)
                         <li class="sidebar-item  ">
-                            <a href="" class='sidebar-link'>
+                            <a href="dashboard" @if (request()->is('dashboard')) class='active' @endif class='sidebar-link'>
                                 <i class="bi bi-house-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
                          <li
                             class="sidebar-item  ">
-                            <a href="" class='sidebar-link'>
-                                <i class="bi bi-grid"></i>
-                                <span>Costum</span>
+                            <a href="costums" @if (request()->is('costums')) class='active' @endif class='sidebar-link'>
+                                <i class="bi bi-ui-checks-grid"></i>
+                                <span>Costums</span>
                             </a>
                         </li>
                         <li
@@ -43,10 +44,27 @@
                         </li>
                          <li class="sidebar-item  ">
                             <a href="" class='sidebar-link'>
-                                <i class="bi bi-bar-chart"></i>
+                                <i class="bi bi-ui-radios"></i>
                                 <span>Rent Log</span>
                             </a>
                         </li>
+                        @endif
+
+                        @if (Auth::user()->role_id == 2)
+                        <li class="sidebar-item  ">
+                            <a href="profile" class='sidebar-link'>
+                                <i class="bi bi-person-square"></i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item  ">
+                            <a href="{{ route('logout') }}" class='sidebar-link'>
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                        @endif
+                        
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

@@ -9,6 +9,6 @@ class UserController extends Controller
 {
     public function profile(Request $request)
     {
-        dd('ini halaman profile');
+        return view('profile');
     }
 }
