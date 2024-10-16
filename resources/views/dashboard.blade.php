@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header"><h4 class="mt-2">{{ __('Welcome!') }}</h4></div>
 
-                <div class="card-body">
+                <div class="card-body mb-3">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -54,16 +54,18 @@
                 </div>
 
                 <div class="mt-5">
-                    <h4> <i class="bi bi-filter-left"></i> Rent Log</h4>
+                    <h5> <i class="bi bi-clipboard-check"></i> Rent Log</h5>
 
                     <table class="table table-striped table table-bordered border-info">
                     <thead>
                     <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">No</th>
                     <th scope="col">User</th>
-                    <th scope="col">Costum</th>
-                    <th scope="col">Start</th>
-                    <th scope="col">End</th>
+                    <th scope="col">Name Costum</th>
+                    <th scope="col">Rent Date</th>
+                    <th scope="col">Return Date</th>
+                    <th scope="col">Actual Return Date</th>
+                    <th scope="col">Status</th>
                     </tr>
                     </thead>
                     <tbody class="table-bordered border-info">
