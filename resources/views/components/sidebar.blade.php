@@ -31,13 +31,13 @@
                         </li>
                         <li
                             class="sidebar-item  ">
-                            <a href="" class='sidebar-link'>
+                            <a href="categories" @if (request()->is('categories')) class='active' @endif  class='sidebar-link'>
                                 <i class="bi bi-hdd-stack"></i>
-                                <span>Category</span>
+                                <span>Categories</span>
                             </a>
                         </li>
                         <li class="sidebar-item  ">
-                            <a href="" class='sidebar-link'>
+                            <a href=""  @if (request()->is('')) class='active' @endif class='sidebar-link'>
                                 <i class="bi bi-people"></i>
                                 <span>Client List</span>
                             </a>

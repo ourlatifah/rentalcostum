@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 
 class CostumsController extends Controller
 {
-    public function costums()
+    public function index()
     {
         return view('costums');
     }

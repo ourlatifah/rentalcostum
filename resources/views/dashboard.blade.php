@@ -23,7 +23,7 @@
                     <i class="bi bi-ui-checks-grid"></i>
                     <div class="col-7 d-flex flex-column justify-content-center">
                     <a>Costums</a>
-                    <a class="card-count">{{ $costumCount }}</a>
+                    <a class="card-count">{{ $costumsCount }}</a>
                     </div>
                     </div>
                     </div>
@@ -35,7 +35,7 @@
                     <i class="bi bi-hdd-stack"></i>
                     <div class="col-9 d-flex flex-column justify-content-center">
                     <a>Categories</a>
-                    <a class="card-count">{{$categoryCount}}</a>
+                    <a class="card-count">{{$categoriesCount}}</a>
                     </div>
                     </div>
                     </div>
@@ -59,13 +59,13 @@
                     <table class="table table-striped table table-bordered border-info">
                     <thead>
                     <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">User</th>
-                    <th scope="col">Name Costum</th>
-                    <th scope="col">Rent Date</th>
-                    <th scope="col">Return Date</th>
-                    <th scope="col">Actual Return Date</th>
-                    <th scope="col">Status</th>
+                    <th style="text-align: center;">No</th>
+                    <th style="text-align: center;">User</th>
+                    <th style="text-align: center;">Name Costum</th>
+                    <th style="text-align: center;">Rent Date</th>
+                    <th style="text-align: center;">Return Date</th>
+                    <th style="text-align: center;">Actual Return Date</th>
+                    <th style="text-align: center;">Status</th>
                     </tr>
                     </thead>
                     <tbody class="table-bordered border-info">

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CostumsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\OnlyAdmin;
@@ -20,10 +21,12 @@ Route::middleware('auth')->group (function () {
     Route::get('/logout', [App\Http\Controllers\AuthController::class,'logout'])->name('logout');
     Route::get('/profile', [App\Http\Controllers\UserController::class,'profile'])->middleware( 'App\Http\Middleware\OnlyClient');
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class,'dashboard'])->middleware('App\Http\Middleware\OnlyAdmin');
-    Route::get('/costums', [App\Http\Controllers\CostumsController::class,'costums']);
+    Route::get('/categories', [App\Http\Controllers\CategoryController::class,'index'])->middleware('App\Http\Middleware\OnlyAdmin');
+    Route::get('/costums', [App\Http\Controllers\CostumsController::class,'index']);
 });
 
-Route::get('/costums', [App\Http\Controllers\CostumsController::class,'costums'])->middleware('auth');
+Route::get('/categories', [App\Http\Controllers\CategoryController::class,'index'])->middleware('auth', 'App\Http\Middleware\OnlyAdmin');
+Route::get('/costums', [App\Http\Controllers\CostumsController::class,'index'])->middleware('auth');
 
 Route::middleware('App\Http\Middleware\OnlyGuest')->group (function () {
     
