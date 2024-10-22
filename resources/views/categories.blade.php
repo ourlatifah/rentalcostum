@@ -7,8 +7,16 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header"><h2 class="mt-3"><i class="bi bi-clipboard-check"></i> Categories List</h2></div>
-               <div class="mt-2" style="margin-right: 20px ; margin-left: 20px">
-               <div class="btn btn-outline-primary mb-3" href=""> <i class="bi bi-plus-square"> </i> Tambah Data</div>
+                <div class="card-body">
+                
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                
+               <div style="margin-right: 20px; margin-left: 20px; display: flex; flex-direction: column; align-items: flex-end;">
+               <a class="btn btn-outline-primary mb-4" href="add-category"> <i class="bi bi-plus-square"> </i> Tambah Data </a>
                     <table class="table table-striped table table-bordered border-info">
                     <thead>
                     <tr>

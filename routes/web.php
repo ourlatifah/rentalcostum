@@ -25,8 +25,13 @@ Route::middleware('auth')->group (function () {
     Route::get('/costums', [App\Http\Controllers\CostumsController::class,'index']);
 });
 
-Route::get('/categories', [App\Http\Controllers\CategoryController::class,'index'])->middleware('auth', 'App\Http\Middleware\OnlyAdmin');
-Route::get('/costums', [App\Http\Controllers\CostumsController::class,'index'])->middleware('auth');
+Route::middleware('auth')->group (function () {
+Route::get('/categories', [App\Http\Controllers\CategoryController::class,'index']);
+Route::get('/add-category', [App\Http\Controllers\CategoryController::class,'add'])->middleware('App\Http\Middleware\OnlyAdmin');
+Route::post('/categories', [App\Http\Controllers\CategoryController::class,'store'])->middleware('App\Http\Middleware\OnlyAdmin');
+Route::get('/edit-category/{id}', [App\Http\Controllers\CategoryController::class,'edit'])->middleware('App\Http\Middleware\OnlyAdmin');
+Route::get('/costums', [App\Http\Controllers\CostumsController::class,'index']);
+});
 
 Route::middleware('App\Http\Middleware\OnlyGuest')->group (function () {
     

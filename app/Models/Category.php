@@ -7,8 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    use Sluggable;
     protected $fillable = [
         'id',
         'name',
+        'slug',
     ];
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 }
