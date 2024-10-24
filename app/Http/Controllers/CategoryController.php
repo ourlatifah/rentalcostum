@@ -27,7 +27,37 @@ class CategoryController extends Controller
             'name' => 'required|unique:categories|max:255',
         ]);
 
-        $category = Category::create($request->all());
+        $categories = Category::create($request->all());
         return redirect('categories')->with('status', 'Category added successfully');
     }
+
+    public function edit($slug)
+    {
+        $categories = Category::where('slug', $slug)->first();
+
+        if (!$categories) {
+        return redirect('categories')->with('error', 'Category not found.');
+        }
+
+        return view('edit-category', ['categories' => $categories]);
+    }
+    
+    public function update(Request $request, $slug)
+    {
+        $categories = Category::where('slug', $slug)->first();
+
+        if (!$categories) {
+            return redirect('categories')->with('error', 'Category not found.');
+        }
+
+        $request->validate([
+            'name' => 'required|unique:categories|max:255',
+        ]);
+
+        
+        $categories->name = $request->name;
+        $categories->save();
+        return redirect('categories')->with('status', 'Category updated successfully');
+    }
+   
 }

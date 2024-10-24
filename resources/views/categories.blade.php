@@ -31,7 +31,7 @@
                             <td style="text-align: center;">{{ $loop->iteration }}</td>
                             <td style="text-align: center;">{{ $item->name }}</td>
                             <td style="text-align: center;">
-                            <a class="btn btn-outline-warning" href="">
+                            <a class="btn btn-outline-warning" href="edit-category/{{$item->slug}}">
                                 <i class="bi bi-pencil-square"></i> Edit
                             </a>
                             <a class="btn btn-outline-danger" href="">
@@ -47,4 +47,24 @@
              </div>
             </div>
          </div>
+        </div>
+    </div>
+<form action="" id="form-delete" method="POST" >
+                    @csrf
+                    @method('DELETE')
+                    </form> 
+
 @endsection
+@push('scripts')
+<link rel="stylesheet" href="{{asset('/vendors/simple-datatables/style.css')}}">
+@endpush
+
+@push('scripts')
+<script src="{{asset('/vendors/simple-datatables/simple-datatables.js')}}"></script>
+<script>
+    let datatable = document.querySelector('#datatable');
+    new simpleDatatables.DataTable(datatable);
+</script>
+@endpush
+
+ @push('scripts')

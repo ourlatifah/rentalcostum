@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Category extends Model
 {
-    use Sluggable;
+    use HasFactory, Sluggable;
     protected $fillable = [
         'id',
         'name',
@@ -18,7 +19,7 @@ class Category extends Model
     {
         return [
             'slug' => [
-                'source' => 'name'
+            'source' => 'name'
             ]
         ];
     }
