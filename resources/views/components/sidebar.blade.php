@@ -31,7 +31,7 @@
                         </li>
                         <li
                             class="sidebar-item  ">
-                            <a href="categories" @if (request()->is('categories')) class='active' @endif  class='sidebar-link'>
+                            <a href="categories" @if (request()->is('categories', 'add-category', 'edit-category/*')) class='active' @endif  class='sidebar-link'>
                                 <i class="bi bi-hdd-stack"></i>
                                 <span>Categories</span>
                             </a>

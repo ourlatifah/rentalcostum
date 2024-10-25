@@ -54,7 +54,7 @@ class CategoryController extends Controller
             'name' => 'required|unique:categories|max:255',
         ]);
 
-        
+        $categories->slug = null;
         $categories->name = $request->name;
         $categories->save();
         return redirect('categories')->with('status', 'Category updated successfully');
