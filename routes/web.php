@@ -31,6 +31,7 @@ Route::get('/add-category', [App\Http\Controllers\CategoryController::class,'add
 Route::post('/categories', [App\Http\Controllers\CategoryController::class,'store'])->middleware('App\Http\Middleware\OnlyAdmin');
 Route::get('/edit-category/{slug}', [App\Http\Controllers\CategoryController::class,'edit'])->name('categories.edit')->middleware('App\Http\Middleware\OnlyAdmin');
 Route::put('/edit-category/{slug}', [App\Http\Controllers\CategoryController::class,'update'])->name('categories.update')->middleware('App\Http\Middleware\OnlyAdmin');
+Route::delete('/categories/{slug}', [App\Http\Controllers\CategoryController::class,'destroy'])->name('categories.destroy')->middleware('App\Http\Middleware\OnlyAdmin');
 Route::get('/costums', [App\Http\Controllers\CostumsController::class,'index']);
 });
 

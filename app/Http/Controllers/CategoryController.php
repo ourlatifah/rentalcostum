@@ -59,5 +59,15 @@ class CategoryController extends Controller
         $categories->save();
         return redirect('categories')->with('status', 'Category updated successfully');
     }
+
+    public function destroy($slug)
+    {
+        $categories = Category::where('slug', $slug)->first();
+    if ($categories) {
+        $categories->delete();
+        return redirect('categories')->with('success', 'Kategori berhasil dihapus.');
+    }
+        return redirect('categories')->with('error', 'Kategori tidak ditemukan.');
+    }
    
 }

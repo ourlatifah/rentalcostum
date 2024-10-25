@@ -14,6 +14,12 @@
                         {{ session('status') }}
                     </div>
                 @endif
+
+                @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+                @endif
                 
                <div style="margin-right: 20px; margin-left: 20px; display: flex; flex-direction: column; align-items: flex-end;">
                <a class="btn btn-outline-primary mb-4" href="add-category"> <i class="bi bi-plus-square"> </i> Tambah Data </a>
@@ -34,7 +40,8 @@
                             <a class="btn btn-outline-warning" href="edit-category/{{$item->slug}}">
                                 <i class="bi bi-pencil-square"></i> Edit
                             </a>
-                            <a class="btn btn-outline-danger" href="">
+                            <a class="btn btn-outline-danger" onclick="handleDestroy(`{{ route('categories.destroy', $item->slug) }}`)";
+                            formdelete.submit();>
                                 <i class="bi bi-trash"></i> Hapus
                             </a>
                         </tr>
@@ -53,10 +60,44 @@
                     @csrf
                     @method('DELETE')
                     </form> 
+<script>
+    function handleDestroy(url) {
+        const formDelete = document.getElementById('form-delete');
+        formDelete.action = url; // Set action ke URL yang diberikan
+        formDelete.submit(); // Kirim form
+    }
+</script>
 
 @endsection
+
+@push('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+        function handleDestroy(url) {
+        swal({
+            title: "Apakah anda yakin?",
+            text: "Data yang di hapus tidak bisa dikembalikan",
+            icon: "warning",
+            buttons: ['Batal', 'Ya Hapus!'],
+            dangerMode: true,
+        })
+        .then((confirmed) => {
+            if (confirmed) {
+                $('#form-delete').attr('action',url);
+                $('#form-delete').submit();
+            }
+        });
+            
+        }
+        </script>
+@endpush
+
+
 @push('scripts')
 <link rel="stylesheet" href="{{asset('/vendors/simple-datatables/style.css')}}">
+
 @endpush
 
 @push('scripts')
