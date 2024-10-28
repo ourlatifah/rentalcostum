@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('costums', function (Blueprint $table) {
             $table->id();
             $table->string('costum_code');
-            $table->string('title');
+            $table->string('warna');
+            $table->string('image');
+            $table->string('slug');
             $table->string('status')->default('in stock');
             $table->timestamps();
         });
@@ -26,5 +28,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('costums');
+        
     }
 };

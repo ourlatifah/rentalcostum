@@ -17,7 +17,6 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group (function () {
-    
     Route::get('/logout', [App\Http\Controllers\AuthController::class,'logout'])->name('logout');
     Route::get('/profile', [App\Http\Controllers\UserController::class,'profile'])->middleware( 'App\Http\Middleware\OnlyClient');
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class,'dashboard'])->middleware('App\Http\Middleware\OnlyAdmin');
@@ -26,17 +25,21 @@ Route::middleware('auth')->group (function () {
 });
 
 Route::middleware('auth')->group (function () {
-Route::get('/categories', [App\Http\Controllers\CategoryController::class,'index']);
-Route::get('/add-category', [App\Http\Controllers\CategoryController::class,'add'])->middleware('App\Http\Middleware\OnlyAdmin');
-Route::post('/categories', [App\Http\Controllers\CategoryController::class,'store'])->middleware('App\Http\Middleware\OnlyAdmin');
-Route::get('/edit-category/{slug}', [App\Http\Controllers\CategoryController::class,'edit'])->name('categories.edit')->middleware('App\Http\Middleware\OnlyAdmin');
-Route::put('/edit-category/{slug}', [App\Http\Controllers\CategoryController::class,'update'])->name('categories.update')->middleware('App\Http\Middleware\OnlyAdmin');
-Route::delete('/categories/{slug}', [App\Http\Controllers\CategoryController::class,'destroy'])->name('categories.destroy')->middleware('App\Http\Middleware\OnlyAdmin');
-Route::get('/costums', [App\Http\Controllers\CostumsController::class,'index']);
+    Route::get('/categories', [App\Http\Controllers\CategoryController::class,'index']);
+    Route::get('/add-category', [App\Http\Controllers\CategoryController::class,'add'])->middleware('App\Http\Middleware\OnlyAdmin');
+    Route::post('/categories', [App\Http\Controllers\CategoryController::class,'store'])->middleware('App\Http\Middleware\OnlyAdmin');
+    Route::get('/edit-category/{slug}', [App\Http\Controllers\CategoryController::class,'edit'])->name('categories.edit')->middleware('App\Http\Middleware\OnlyAdmin');
+    Route::put('/edit-category/{slug}', [App\Http\Controllers\CategoryController::class,'update'])->name('categories.update')->middleware('App\Http\Middleware\OnlyAdmin');
+    Route::delete('/categories/{slug}', [App\Http\Controllers\CategoryController::class,'destroy'])->name('categories.destroy')->middleware('App\Http\Middleware\OnlyAdmin');
+});
+
+Route::middleware('auth')->group (function () {
+    Route::get('/costums', [App\Http\Controllers\CostumsController::class,'index']);
+    Route::get('/add-costum', [App\Http\Controllers\CostumsController::class,'add'])->middleware('App\Http\Middleware\OnlyAdmin');
+    Route::post('/costums', [App\Http\Controllers\CostumsController::class,'store'])->middleware('App\Http\Middleware\OnlyAdmin');
 });
 
 Route::middleware('App\Http\Middleware\OnlyGuest')->group (function () {
-    
     Route::get('/login', [App\Http\Controllers\AuthController::class,'login'])->name('login');
     Route::post('/login', [App\Http\Controllers\AuthController::class,'authenticating']);
     Route::get('/register', [App\Http\Controllers\AuthController::class,'register'])->name('register');
