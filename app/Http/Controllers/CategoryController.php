@@ -44,19 +44,23 @@ class CategoryController extends Controller
     
     public function update(Request $request, $slug)
     {
+        // Log slug yang diterima
+        \Log::info('Updating category with slug:', ['slug' => $slug]);
+        // Validasi permintaan yang masuk
         $categories = Category::where('slug', $slug)->first();
-
+        // Cek apakah kategori ada
         if (!$categories) {
+            \Log::error('Category not found for slug:', ['slug' => $slug]);
             return redirect('categories')->with('error', 'Category not found.');
         }
-
+        // Validasi nama kategori
         $request->validate([
-            'name' => 'required|unique:categories|max:255',
+            'name' => 'required|max:255|unique:categories,name,' . $categories->id, // gunakan ID kategori
         ]);
-
-        $categories->slug = null;
-        $categories->name = $request->name;
+        // Perbarui properti kategori
+        $categories->name = $request->input('name');
         $categories->save();
+        // Redirect dengan pesan sukses
         return redirect('categories')->with('status', 'Category updated successfully');
     }
 

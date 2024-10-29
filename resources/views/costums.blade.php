@@ -39,7 +39,13 @@
                     <td style="text-align: center;">{{ $item->costum_code }}</td>
                     <td style="text-align: center;">{{ $item->warna }}</td>
                     <td>
-                    <img src="{{ asset('/storage/public/uploads/costums/' . $item->image) }}" alt="Image" style="max-width: 500px"></td>
+                        <img 
+                            src="{{ asset('storage/uploads/costums/' . $item->image) }}" 
+                            alt="{{ $item->warna }} Costum" 
+                            class="img-fluid" 
+                            style="max-width: 200px; height: auto;" 
+                            onerror="this.onerror=null; this.src='{{ asset('path/to/default/image.jpg') }}';">
+                    </td>
                     <td style="text-align: center;">
                     <a class="btn btn-outline-primary" href=""><i class="bi bi-pencil-square"></i> Edit</a>
                     <a class="btn btn-outline-danger" href=""><i class="bi bi-trash"></i> Delete</a>

@@ -25,16 +25,16 @@ class CostumsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'costum_code' => 'required',
-            'warna' => 'required',
+            'costum_code' => 'required|unique:costums|max:255',
+            'warna' => 'required|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,jfif|max:2048',
         ]);
     
         // Generate the slug from the costum_code
-        $slug = Str::slug($request->warna); // Use Laravel's Str helper to create a slug
+        $slug = Str::slug($request->costum_code); // Use Laravel's Str helper to create a slug
     
         $ImageName = time() . '.' . $request->image->extension();
-        Storage::putFileAs('public/uploads/costums', $request->image, $ImageName);
+        Storage::disk('public')->putFileAs('uploads/costums', $request->image, $ImageName);
     
         // Check if a costum with the same slug already exists
         $existingCostum = Costum::where('slug', $slug)->orWhere('slug', 'LIKE', "$slug-%")->first();
