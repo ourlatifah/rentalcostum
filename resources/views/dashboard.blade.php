@@ -53,7 +53,7 @@
                     {{-- </div> --}}
                 </div>
 
-                <div class="mt-5">
+                <div class="row justify-content-center mt-5">
                     <h5> <i class="bi bi-clipboard-check"></i> Rent Log</h5>
 
                     <table class="table table-striped table table-bordered border-info">

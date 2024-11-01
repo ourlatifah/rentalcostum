@@ -36,7 +36,10 @@ Route::middleware('auth')->group (function () {
 Route::middleware('auth')->group (function () {
     Route::get('/costums', [App\Http\Controllers\CostumsController::class,'index']);
     Route::get('/add-costum', [App\Http\Controllers\CostumsController::class,'add'])->middleware('App\Http\Middleware\OnlyAdmin');
-    Route::post('/costums', [App\Http\Controllers\CostumsController::class,'store'])->middleware('App\Http\Middleware\OnlyAdmin');
+    Route::post('/costums', [App\Http\Controllers\CostumsController::class,'store'])->name('costum.store')->middleware('App\Http\Middleware\OnlyAdmin');
+    Route::get('/edit-costum/{slug}', [App\Http\Controllers\CostumsController::class,'edit'])->name('costums.edit')->middleware('App\Http\Middleware\OnlyAdmin');
+    Route::put('/edit-costum/{slug}', [App\Http\Controllers\CostumsController::class,'update'])->name('costums.update')->middleware('App\Http\Middleware\OnlyAdmin');
+    Route::delete('/costums/{slug}', [App\Http\Controllers\CostumsController::class,'destroy'])->name('costums.destroy')->middleware('App\Http\Middleware\OnlyAdmin');
 });
 
 Route::middleware('App\Http\Middleware\OnlyGuest')->group (function () {

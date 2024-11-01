@@ -20,7 +20,7 @@
                     {{ session('error') }}
                 </div>
                 @endif
-                
+                <div class="row justify-content-center">
                <div style="margin-right: 20px; margin-left: 20px; display: flex; flex-direction: column; align-items: flex-end;">
                <a class="btn btn-outline-primary mb-4" href="add-category"> <i class="bi bi-plus-square"> </i> Tambah Data </a>
                     <table class="table table-striped table table-bordered border-info">
@@ -52,6 +52,7 @@
                 </div>
                 </div>
              </div>
+            </div>
             </div>
          </div>
         </div>
