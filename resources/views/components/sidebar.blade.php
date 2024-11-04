@@ -37,7 +37,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item  ">
-                            <a href=""  @if (request()->is('')) class='active' @endif class='sidebar-link'>
+                            <a href="users"  @if (request()->is('users', 'registered-users', 'users-detail/*')) class='active' @endif class='sidebar-link'>
                                 <i class="bi bi-people"></i>
                                 <span>Client List</span>
                             </a>

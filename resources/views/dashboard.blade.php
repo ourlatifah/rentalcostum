@@ -46,7 +46,7 @@
                     <div class="card-data row">
                     <i class="bi bi-people"></i>
                     <div class="col-6 d-flex flex-column justify-content-center">
-                    <a>Clients</a>
+                    <a>Users</a>
                     <a class="card-count">{{$userCount}}</a>
                     </div>
                     </div>
