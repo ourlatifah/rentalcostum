@@ -17,6 +17,7 @@
                                     <div class="user-menu d-flex">
                                         <div class="user-name text-end me-3">
                                             <h5 class="mb-0 text-gray-600">
+                                            @if (Auth::user())
                                             {{Auth::user()->username}}</h5>
                                         </div>
                                         <div class="user-img d-flex align-items-center">
@@ -34,6 +35,7 @@
                                     <form id="form-logout" action="{{ route('logout')}}" method="POST">
                                     @csrf
                                     </form>
+                                    @endif
                                     </li>
                                 </ul>
                             </div>
@@ -41,3 +43,4 @@
                     </div>
                 </nav>
             </header>
+            

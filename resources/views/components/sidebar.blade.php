@@ -15,6 +15,7 @@
                 <div class="sidebar-menu">
                 <ul class="menu">
                 <li class="sidebar-title">Menu</li> 
+                @if (Auth::user())
                         @if (Auth::user()->role_id == 1)
                         <li class="sidebar-item  ">
                             <a href="dashboard" @if (request()->is('dashboard')) class='active' @endif class='sidebar-link'>
@@ -25,6 +26,12 @@
                          <li
                             class="sidebar-item  ">
                             <a href="costums" @if (request()->is('costums')) class='active' @endif class='sidebar-link'>
+                                <i class="bi bi-ui-checks"></i>
+                                <span>Costums List</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item  ">
+                            <a href="/" @if (request()->is('/')) class='active' @endif class='sidebar-link'>
                                 <i class="bi bi-ui-checks-grid"></i>
                                 <span>Costums</span>
                             </a>
@@ -48,13 +55,17 @@
                                 <span>Rent Log</span>
                             </a>
                         </li>
-                        @endif
-
-                        @if (Auth::user()->role_id == 2)
+                        @else
                         <li class="sidebar-item  ">
-                            <a href="profile" class='sidebar-link'>
+                            <a href="profile" @if (request()->is('profile')) class='active' @endif class='sidebar-link'>
                                 <i class="bi bi-person-square"></i>
                                 <span>Profile</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item  ">
+                            <a href="/" @if (request()->is('/')) class='active' @endif class='sidebar-link'>
+                                <i class="bi bi-ui-checks-grid"></i>
+                                <span>Costums</span>
                             </a>
                         </li>
                         <li class="sidebar-item  ">
@@ -64,7 +75,14 @@
                             </a>
                         </li>
                         @endif
-                        
+                        @else
+                        <li class="sidebar-item  ">
+                            <a href="{{ route('login') }}" class='sidebar-link'>
+                                <i class="bi bi-box-arrow-in-right"></i>
+                                <span>Login</span>
+                            </a>
+                        </li>
+                       @endif 
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

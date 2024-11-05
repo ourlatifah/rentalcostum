@@ -17,7 +17,7 @@ class OnlyGuest
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check() && Auth::user()) {
-            return redirect('/costums');
+            return redirect('/');
         }
         return $next($request);
     }
