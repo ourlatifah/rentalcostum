@@ -5,6 +5,8 @@ use App\Http\Controllers\CostumsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RentLogController;
+use App\Http\Controllers\CostumRentController;
 use App\Http\Controllers\PublicController;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\OnlyAdmin;
@@ -13,7 +15,7 @@ use App\Http\Middleware\OnlyGuest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [App\Http\Controllers\PublicController::class,'index']);
+Route::get('/', [App\Http\Controllers\PublicController::class,'index'])->name('public.index');
 
 Route::middleware('auth', 'App\Http\Middleware\OnlyAdmin')->group (function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class,'dashboard']);
@@ -39,6 +41,9 @@ Route::middleware('auth', 'App\Http\Middleware\OnlyAdmin')->group (function () {
     Route::get('/users-approve/{slug}', [App\Http\Controllers\UserController::class,'approve'])->name('users.approve');
     Route::delete('/users/{slug}', [App\Http\Controllers\UserController::class,'delete'])->name('users.delete');
     Route::get('/users-destroy/{slug}', [App\Http\Controllers\UserController::class,'destroy'])->name('users.destroy');
+
+    Route::get('/costums-rent', [App\Http\Controllers\CostumRentController::class,'index']);
+    Route::get('/rent-log', [App\Http\Controllers\RentLogController::class,'index']);
 });
 
 Route::middleware('auth')->group (function () {

@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header"><h2 class="mt-3"><i class="bi bi-clipboard-check"></i> Clients List</h2></div>
+                <div class="card-header"><h2 class="mt-3"> <i class="bi bi-people"></i> Clients List</h2></div>
                 <div class="card-body">
                 
                 @if (session('status'))

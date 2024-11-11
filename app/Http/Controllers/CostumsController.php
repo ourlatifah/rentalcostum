@@ -16,7 +16,8 @@ class CostumsController extends Controller
     public function index()
     {
         $costums = Costum::all();
-        return view('costums',['costums' => $costums]);
+        $categories = Category::all();
+        return view('costums',['costums' => $costums], compact('categories'));
     }
 
     public function add()

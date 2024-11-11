@@ -33,12 +33,17 @@
             </div>
             {{-- <div class="form-group">
                 <label for="slug" class="form-label"> Slug <span class="text-danger">*</span></label>
-                <input type="text" class="form-control mt-2" name="slug" id="slug" placeholder="Slug Costum" required />
+                <select name="slug" id="slug" class="form-control" class="form_select" required>
+                <option value=""> Pilih Slug</option>
+                 @foreach ($categories as  $item)
+                <option>{{  $item->slug }}</option>
+                @endforeach
+                </select>
             </div> --}}
             <div class="form-group">
                 <label for="category_id" class="form-label"> Category <span class="text-danger">*</span></label>
-                <select name="category_id" id="category_id" class="form-control" required>
-                <option value=""> Pilih Category</option>
+                <select name="category_id" id="category_id" class="form-control" class="form_select" required>
+                <option value=""> Pilih Category </option>
                  @foreach ($categories as  $item)
                 <option value="{{  $item->id }}">{{  $item->name }}</option>
                 @endforeach

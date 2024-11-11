@@ -28,9 +28,9 @@ class Costum extends Model
             ]
         ];
     }
-    public function item()
+    public function categories()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'costum_category', 'costum_id', 'category_id');
     }
     public function costum() {
         return $this->hasMany(Costum::class);

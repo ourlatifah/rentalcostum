@@ -49,9 +49,15 @@
                                 <span>Client List</span>
                             </a>
                         </li>
+                        <li class="sidebar-item  ">
+                            <a href="costums-rent" @if (request()->is('costums-rent')) class='active' @endif class='sidebar-link'>
+                               <i class="bi bi-card-checklist"></i>
+                                <span>Costums Rent</span>
+                            </a>
+                        </li>
                          <li class="sidebar-item  ">
                             <a href="" class='sidebar-link'>
-                                <i class="bi bi-ui-radios"></i>
+                                <i class="bi bi-bar-chart-line"></i>
                                 <span>Rent Log</span>
                             </a>
                         </li>
