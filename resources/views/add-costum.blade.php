@@ -41,8 +41,8 @@
                 </select>
             </div> --}}
             <div class="form-group">
-                <label for="category_id" class="form-label"> Category <span class="text-danger">*</span></label>
-                <select name="category_id" id="category_id" class="form-control" class="form_select" required>
+                <label for="categories" class="form-label"> Category <span class="text-danger">*</span></label>
+                <select name="category_id" id="categories" class="form-control" class="form_select" required>
                 <option value=""> Pilih Category </option>
                  @foreach ($categories as  $item)
                 <option value="{{  $item->id }}">{{  $item->name }}</option>

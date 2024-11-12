@@ -43,6 +43,7 @@ Route::middleware('auth', 'App\Http\Middleware\OnlyAdmin')->group (function () {
     Route::get('/users-destroy/{slug}', [App\Http\Controllers\UserController::class,'destroy'])->name('users.destroy');
 
     Route::get('/costums-rent', [App\Http\Controllers\CostumRentController::class,'index']);
+    Route::post('/costums-rent', [App\Http\Controllers\CostumRentController::class,'store']);
     Route::get('/rent-log', [App\Http\Controllers\RentLogController::class,'index']);
 });
 

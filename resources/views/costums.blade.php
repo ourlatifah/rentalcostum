@@ -49,7 +49,7 @@
                     </td>
                     <td style="text-align: center;">{{ $item->category_id }}</td>
                     <td style="text-align: center;">
-                    <a class="btn btn-outline-warning mb-3" href="edit-costum/{{ $item->slug }}"><i class="bi bi-pencil-square"></i> Edit </a>
+                    <a class="btn btn-outline-warning " href="edit-costum/{{ $item->slug }}"><i class="bi bi-pencil-square"></i> Edit </a>
                     <a class="btn btn-outline-danger" onclick="handleDestroy(`{{ route('costums.destroy', $item->slug) }}`)";
                      formdelete.submit();>
                      <i class="bi bi-trash"></i> Hapus
