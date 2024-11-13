@@ -10,6 +10,7 @@ use App\Models\Costum;
 class Category extends Model
 {
     use HasFactory, Sluggable;
+    protected $table = 'categories';
     protected $fillable = [
         'id',
         'name',

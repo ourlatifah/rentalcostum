@@ -56,7 +56,7 @@
                             </a>
                         </li>
                          <li class="sidebar-item  ">
-                            <a href="" class='sidebar-link'>
+                            <a href="rent-log" @if (request()->is('rent-log')) class='active' @endif class='sidebar-link'>
                                 <i class="bi bi-bar-chart-line"></i>
                                 <span>Rent Log</span>
                             </a>

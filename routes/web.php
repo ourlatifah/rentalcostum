@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\PublicController::class,'index'])->name('public.index');
 
+//halaman admin
 Route::middleware('auth', 'App\Http\Middleware\OnlyAdmin')->group (function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class,'dashboard']);
 //costums
@@ -41,17 +42,20 @@ Route::middleware('auth', 'App\Http\Middleware\OnlyAdmin')->group (function () {
     Route::get('/users-approve/{slug}', [App\Http\Controllers\UserController::class,'approve'])->name('users.approve');
     Route::delete('/users/{slug}', [App\Http\Controllers\UserController::class,'delete'])->name('users.delete');
     Route::get('/users-destroy/{slug}', [App\Http\Controllers\UserController::class,'destroy'])->name('users.destroy');
-
+//rentcostum
     Route::get('/costums-rent', [App\Http\Controllers\CostumRentController::class,'index']);
     Route::post('/costums-rent', [App\Http\Controllers\CostumRentController::class,'store']);
+//rentlog
     Route::get('/rent-log', [App\Http\Controllers\RentLogController::class,'index']);
 });
 
+//halaman users
 Route::middleware('auth')->group (function () {
     Route::get('/logout', [App\Http\Controllers\AuthController::class,'logout'])->name('logout');
     Route::get('/profile', [App\Http\Controllers\UserController::class,'profile'])->middleware( 'App\Http\Middleware\OnlyClient');
 });
 
+//halaman login
 Route::middleware('App\Http\Middleware\OnlyGuest')->group (function () {
     Route::get('/login', [App\Http\Controllers\AuthController::class,'login'])->name('login');
     Route::post('/login', [App\Http\Controllers\AuthController::class,'authenticating']);
