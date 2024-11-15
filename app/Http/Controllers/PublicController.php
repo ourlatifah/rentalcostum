@@ -9,6 +9,7 @@ class PublicController extends Controller
 {
             public function index(Request $request)
         {
+           
             $costums = Costum::query();
             if ($request->has('warna')) {
                 $costums->where('warna', 'like', '%' . $request->warna . '%');
@@ -24,5 +25,6 @@ class PublicController extends Controller
                 'costums' => $costums->get(),
                 'categories' => $categories,
             ]);
+           
         }
 }

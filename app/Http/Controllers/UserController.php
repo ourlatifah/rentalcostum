@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\RentLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
+    public function profile(Request $request)
+    {
+        $rentlogs = RentLog::with(['user', 'costum'])->where('user_id', Auth::user()->id)->get();
+        return view('profile', ['rentlogs'=> $rentlogs]);
+    }
 
     public function index(Request $request)
     {
@@ -52,10 +59,6 @@ class UserController extends Controller
         return redirect('users')->with('success', 'User deleted successfully');
     }
     
-    public function profile(Request $request)
-    {
-        return view('profile');
-    }
-
+    
     
 }

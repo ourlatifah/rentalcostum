@@ -15,7 +15,7 @@ class CostumRentController extends Controller
 {
     public function index ()
     {
-        $users = User::where('role_id', '!=', 1)->get();
+        $users = User::where('role_id', '!=', 1)->where('status', '!=', 'inactive')->get();
         $categories = Category::all();
         $costums = Costum::all();
         return view ('costums-rent', ['users'=> $users, 'costums'=>$costums, 'categories'=> $categories]);

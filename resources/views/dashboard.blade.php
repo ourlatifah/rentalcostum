@@ -52,29 +52,6 @@
                     </div>
                     {{-- </div> --}}
                 </div>
-
-                <div class="row justify-content-center mt-5">
-                    <h5> <i class="bi bi-clipboard-check"></i> Rent Log</h5>
-
-                    <table class="table table-striped table table-bordered border-info">
-                    <thead>
-                    <tr>
-                    <th style="text-align: center;">No</th>
-                    <th style="text-align: center;">User</th>
-                    <th style="text-align: center;">Name Costum</th>
-                    <th style="text-align: center;">Rent Date</th>
-                    <th style="text-align: center;">Return Date</th>
-                    <th style="text-align: center;">Actual Return Date</th>
-                    <th style="text-align: center;">Status</th>
-                    </tr>
-                    </thead>
-                    <tbody class="table-bordered border-info">
-                    <tr>
-                    <td colspan="7" style="text-align: center">No data</td>
-                    </tr>
-                    </tbody>
-                    </table>
-                </div>
                 </div>
 
                 <div class="card-footer mt-2">

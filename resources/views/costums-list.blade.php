@@ -21,7 +21,7 @@
             </div>
             </div>
         </form>
-
+        
             <div class="my-5">
             <div class="row cols-md-3 g-0">
             @foreach ($costums as $item)
