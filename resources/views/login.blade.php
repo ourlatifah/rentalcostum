@@ -63,16 +63,13 @@
             Don't have an account?
                 <a href="register" class="btn btn-outline-primary font-bold">Sign up</a>
             </div>
+            </div>
+            </div>
+            <div class="col-lg-7 d-none d-lg-block">
+                <div id="auth-right">
+                </div>
+            </div>
+          </div>
         </div>
-    </div>
-    <div class="col-lg-7 d-none d-lg-block">
-        <div id="auth-right">
-
-        </div>
-    </div>
-</div>
-
-    </div>
-</body>
-
+    </body>
 </html>

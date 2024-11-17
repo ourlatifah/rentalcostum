@@ -5,7 +5,7 @@
     <div class="row justify-content-center align-items-center">
         <div class="col-md-15">
             <div class="card">
-            <div class="card-header"><h2 class="mt-3"><i class="bi bi-card-checklist"></i>  Costums Rent Form </h2></div>
+            <div class="card-header"><h2 class="mt-3"><i class="bi bi-clipboard-check"></i>  Costums Return Form </h2></div>
            
                 <div class="card-body mb-3">
                     @if (session('message'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                   <form action="costums-rent" method="POST">
+                   <form action="costums-return" method="POST">
                     @csrf
                     <div class="mb-3 row justify-content-center align-items-center">
                         <label for="users" class="form-label">User</label>
@@ -39,7 +39,7 @@
                         <select name="costum_id" id="costum_id" class="form-control inputbox" required>
                              <option value=""> Pilih Warna </option>
                          @foreach ($costums as $item)
-                             <option value="{{$item->id}}"> {{$item->costum_code}}-{{$item->id}}-{{$item->warna}}</option>
+                             <option value="{{$item->id}}">{{$item->costum_code}}-{{$item->id}}-{{$item->warna}}</option>
                          @endforeach
                         </select>
                     </div>

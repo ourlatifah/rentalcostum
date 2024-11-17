@@ -58,7 +58,7 @@ class CostumRentController extends Controller
             $costums->save();
             DB::commit();
         
-            Session::flash('message', 'Rent costume successfully');
+            Session::flash('message', 'Rent costum successfully');
             Session::flash('alert-class', 'alert-success');
             return redirect('costums-rent');
             } catch (\Throwable $th) {
@@ -68,5 +68,35 @@ class CostumRentController extends Controller
                 Session::flash('alert-class', 'alert-danger');
                 return redirect('costums-rent');
             }
+    }
+
+    public function return()
+    {
+        $users = User::where('role_id', '!=', 1)->where('status', '!=', 'inactive')->get();
+        $categories = Category::all();
+        $costums = Costum::all();
+        return view ('costums-return', ['users'=> $users, 'costums'=>$costums, 'categories'=> $categories]);
+    }
+
+    public function returnCostums(Request $request)
+    {
+      $rentlogs = RentLog::where('user_id', $request->user_id)->where('costum_id', $request->costum_id)->where('actual_return_date', null)->count();
+      //hasil 0 ketika costum sudah dikembalikan
+      if ($rentlogs == 0) {
+        Session::flash('message', 'tidak bisa return, karena costum sudah dikembalikan');
+        Session::flash('alert-class', 'alert-danger');
+        return redirect('costums-return');
+      }
+      $rentlogs = RentLog::where('user_id', $request->user_id)->where('costum_id', $request->costum_id)->where('actual_return_date', null)->first();
+      $rentlogs->actual_return_date = Carbon::now()->toDateString();
+      $rentlogs->save();
+
+      $costums = Costum::findOrFail($request->costum_id);
+      $costums->status = 'in stock';
+      $costums->save();
+
+      Session::flash('message', 'Return costume successfully');
+      Session::flash('alert-class', 'alert-success');
+      return redirect('costums-return');
     }
 }

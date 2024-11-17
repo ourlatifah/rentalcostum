@@ -26,7 +26,7 @@
             <a class="btn btn-outline-danger mb-4" href="/users-destroy/{{$users->slug}}"> </i> Ban User </a>
             @endif
             <a class="btn btn-outline-secondary mb-4" href="users"> <i class="bi bi-backspace-reverse"></i> Kembali </a>
-            {{-- <a class="btn btn-outline-danger mb-4" href="users"> </i> Kembali </a> --}}
+           
             <div class="form-group">
                 <label for="username" class="form-label"> Username <span class="text-danger">*</span></label>
                 <input type="text" class="form-control mt-2" name="username" id="username" value="{{ $users->username }}" />

@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\PublicController::class,'index'])->name('public.index');
-Route::post('/', [App\Http\Controllers\PublicController::class,'store'])->name('public.store');
 
 //halaman admin
 Route::middleware('auth', 'App\Http\Middleware\OnlyAdmin')->group (function () {
@@ -44,8 +43,17 @@ Route::middleware('auth', 'App\Http\Middleware\OnlyAdmin')->group (function () {
     Route::delete('/users/{slug}', [App\Http\Controllers\UserController::class,'delete'])->name('users.delete');
     Route::get('/users-destroy/{slug}', [App\Http\Controllers\UserController::class,'destroy'])->name('users.destroy');
 
+//costumsrent
+    Route::get('/costums-rent', [App\Http\Controllers\CostumRentController::class,'index']);
+    Route::post('/costums-rent', [App\Http\Controllers\CostumRentController::class,'store']);
+
+//costumreturn
+    Route::get('/costums-return', [App\Http\Controllers\CostumRentController::class,'return']);
+    Route::post('/costums-return', [App\Http\Controllers\CostumRentController::class,'returnCostums']);
+
 //rentlog
     Route::get('/rent-log', [App\Http\Controllers\RentLogController::class,'index']);
+    Route::delete('/rent-log/{id}', [App\Http\Controllers\RentLogController::class,'destroy'])->name('rent-log.destroy');
 });
 
 //halaman users

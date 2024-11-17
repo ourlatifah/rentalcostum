@@ -17,4 +17,11 @@ class RentLogController extends Controller
         $rentlogs = RentLog::with(['user', 'costum'])->get();
         return view('rent-log', ['rentlogs' => $rentlogs, 'today' => $today]);
     }
+
+    public function destroy($id)
+    {
+        $rentlog = RentLog::findOrFail($id);
+        $rentlog->delete();
+        return redirect()->back();
+    }
 }

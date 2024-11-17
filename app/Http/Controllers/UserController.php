@@ -32,7 +32,7 @@ class UserController extends Controller
     {
         $users = User::where('slug', $slug)->first();
         if (!$users) {
-            return redirect('users')->with('error', 'Berhasil Kembali');
+            return redirect('users');
         }
         return view('users-detail',['users'=> $users]);
     }

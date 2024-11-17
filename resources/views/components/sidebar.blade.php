@@ -55,6 +55,12 @@
                                 <span>Costums Rent</span>
                             </a>
                         </li>
+                        <li class="sidebar-item  ">
+                            <a href="costums-return" @if (request()->is('costums-return')) class='active' @endif class='sidebar-link'>
+                               <i class="bi bi-card-checklist"></i>
+                                <span>Costums Return</span>
+                            </a>
+                        </li>
                          <li class="sidebar-item  ">
                             <a href="rent-log" @if (request()->is('rent-log')) class='active' @endif class='sidebar-link'>
                                 <i class="bi bi-journals"></i>

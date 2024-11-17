@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-15">
             <div class="card">
                 <div class="card-header"><h2 class="mt-3"> <i class="bi bi-ui-checks"></i> Costum List</h2></div>
                 <div class="card-body">
@@ -29,7 +29,8 @@
                     <th style="text-align: center;">Code</th>
                     <th style="text-align: center;">Warna Costum</th>
                     <th style="text-align: center;">Image Costum</th>
-                    <th style="text-align: center;">Category</th>
+                    <th style="text-align: center;">Category Id</th>
+                    <th style="text-align: center;">Costum Id</th>
                     <th style="text-align: center;">Action</th>
                     </tr>
                     </thead>
@@ -48,6 +49,7 @@
                             onerror="this.onerror=null; this.src='{{ asset('path/to/default/image.jpg') }}';">
                     </td>
                     <td style="text-align: center;">{{ $item->category_id }}</td>
+                    <td style="text-align: center;">{{ $item->id }}</td>
                     <td style="text-align: center;">
                     <a class="btn btn-outline-warning " href="edit-costum/{{ $item->slug }}"><i class="bi bi-pencil-square"></i> Edit </a>
                     <a class="btn btn-outline-danger" onclick="handleDestroy(`{{ route('costums.destroy', $item->slug) }}`)";
