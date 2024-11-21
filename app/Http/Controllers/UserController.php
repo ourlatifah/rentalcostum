@@ -45,11 +45,11 @@ class UserController extends Controller
         return redirect('users-detail/'.$slug)->with('success', 'User approved successfully');
     }
 
-    public function delete(Request $request, $slug)
+        public function delete(Request $request, $id)
     {
-        $users = User::where('slug', $slug)->first();
-        $users->save();
-        return redirect('users')->with('success', 'User deleted successfully');
+        $user = User::findOrFail($id); 
+        $user->delete();
+        return redirect('users')->with('success', 'User  deleted successfully');
     }
 
     public function destroy(Request $request, $slug)

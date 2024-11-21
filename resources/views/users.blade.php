@@ -48,7 +48,7 @@
                             <a class="btn btn-outline-warning" href="/users-detail/{{$item->slug}}">
                                <i class="bi bi-collection"></i> Detail
                             </a>
-                            <a class="btn btn-outline-danger"onclick="handleDestroy(`{{ route('users.delete', $item->slug) }}`)";
+                            <a class="btn btn-outline-danger"onclick="handleDestroy(`{{ route('users.delete', $item->id) }}`)";
                             formdelete.submit();>
                                 <i class="bi bi-trash"></i> Ban User
                             </a>
@@ -73,8 +73,8 @@
 <script>
     function handleDestroy(url) {
         const formDelete = document.getElementById('form-delete');
-        formDelete.action = url; // Set action ke URL yang diberikan
-        formDelete.submit(); // Kirim form
+        formDelete.action = url; 
+        formDelete.submit(); 
     }
 </script>
 
@@ -88,9 +88,9 @@
         function handleDestroy(url) {
         swal({
             title: "Apakah anda yakin?",
-            text: "Data yang di hapus tidak bisa dikembalikan",
+            text: "User yang di ban tidak bisa dikembalikan",
             icon: "warning",
-            buttons: ['Batal', 'Ya Hapus!'],
+            buttons: ['Batal', 'Ban User!'],
             dangerMode: true,
         })
         .then((confirmed) => {
