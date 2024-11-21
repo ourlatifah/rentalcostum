@@ -17,7 +17,7 @@ class OnlyClient
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check() && Auth::user()->role_id != 2) {
-            return redirect('/profile');
+            return redirect('/');
         }
         return $next($request);
     }
